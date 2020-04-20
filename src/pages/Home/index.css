@@ -1,0 +1,118 @@
+.home{
+	width: calc(100% - 120px); /* 80%宽度 */
+	height: 100%;
+	display: inline-flex;  /* inline-flex表示 inline + block + flex 布局 */
+	margin-left:-60px;
+	border-radius: 40px;
+	background-color: white;
+	vertical-align: middle;
+}
+
+.home-main{
+	width:70%;
+	padding:40px;
+	background-color: rgb(238,239,244);
+	border-radius: 40px;
+}
+
+header{
+	height:40px;
+	margin-bottom:30px;
+}
+
+header span{
+	font-size:24px;
+}
+
+.home-search{
+	float:right;
+	margin-top: -6px;
+}
+
+.search{
+	height:35px;
+	width:400px;
+	/* 下两行去除input框默认样式 */
+	outline: none;
+	border:none;
+	background-color: white;
+	border-radius: 3px;
+	color: rgb(163,162,166);
+	font-size: 16px;
+}
+
+.search:focus{
+	border:1px solid rgb(115,161,196);
+}
+
+.home-content-list{
+	height:calc(100% - 70px); /* 子元素是父元素的content；40px是header */
+	overflow: scroll;
+}
+
+.home-content-card{
+	height:250px;
+	margin-bottom: 30px;
+	padding: 20px 40px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+.home-content-card h3{
+	margin-bottom: 10px;
+}
+
+.home-content-card img{
+	width:200px;
+	height:160px;
+	vertical-align: top;
+}
+
+.article-content{
+	display: inline-block;
+	width:calc(100% - 220px);
+	height:160px;
+	margin-left:20px;
+	vertical-align: top;
+	font-size:16px;
+	line-height:25px;
+}
+
+.link-style{
+	text-decoration: none;
+	color:rgb(115,161,196);
+}
+
+.hide-element{
+	display: none;
+}
+
+.card-footer{
+	margin-top: 15px;
+	font-size: 14px;
+	color: rgb(163,162,166);
+}
+
+.card-footer span{
+	margin-right: 10px;
+}
+
+.home-right-part{
+	padding:40px;
+	width:calc(30% - 160px); /* 这是w3c盒子，width不包括padding，所以还要减去两个div的padding */
+  text-align: center;
+}
+
+.home-right-part img{
+	width:120px;
+	height:120px;
+	border-radius: 50%;
+}
+
+.home-right-part h2{
+	margin:10px 0;
+	font-weight: normal;
+}
+
+
+

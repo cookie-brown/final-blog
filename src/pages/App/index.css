@@ -1,3 +1,16 @@
 .App{
-    color: red;
+	height:100vh;
+	padding:20px 70px;
+	/* 让子元素可以撑满空间，同时也保证两边有间隙 */
+	background-color: rgb(220,226,253);
+	box-sizing: border-box;
+	/* IE盒子，width=content+padding+border */
+	font-family: "palatino";
+	font-size: 16px;
 }
+
+body, ul ,li, h3, h4, span{
+	padding:0;
+	margin:0;
+}
+

@@ -49,6 +49,7 @@ module.exports = {
         })
     ],
     devServer: {
+        historyApiFallback: true,
         contentBase: path.resolve(__dirname, buildPath),
         compress: true,
         port: 9000

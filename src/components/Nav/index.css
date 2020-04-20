@@ -1,0 +1,49 @@
+.nav{
+	height:100%;
+	width:180px;
+	display: inline-flex;
+	padding-right:60px;
+	border-radius: 40px;
+	background-color:rgb(115,161,196);
+/*往下2行实现li在ul的垂直居中*/
+	flex-direction: column;
+	justify-content: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+.nav li{
+	height:70px;
+	margin-bottom:60px;
+	list-style: none; /*去掉无序列表的点样式*/
+}
+
+.nav li a {
+	width:100%;
+	display: inline-block;
+	color: white;
+	/*line-height:70px; */
+	/* 行高70px，表示里面有一个子元素就有一行高度70px */
+	text-decoration: none; /* 去掉链接自带的样式 */
+	text-align: center;
+	/* 该属性针对子元素，即子元素在该元素中水平居中；而margin auto指该元素在父元素中水平居中 */
+}
+
+.nav li i{
+	font-size: 36px;
+}
+
+.nav-name-tips{
+	visibility: hidden;
+	font-size:14px;
+}
+
+.nav li:hover .nav-name-tips {
+	visibility: visible;
+}
+
+.nav li:hover{
+	background-color: rgb(184,200,220);
+}
+
+
