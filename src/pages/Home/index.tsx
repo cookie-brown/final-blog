@@ -12,6 +12,8 @@ export  default  class Home extends PureComponent {
             homeSearch:'Search',
             articles: [],
             isAllContentShow:true,
+            profile:{},
+            tags:[],
         }
     }
 
@@ -42,7 +44,29 @@ export  default  class Home extends PureComponent {
                     tag:'娱乐',
                     length:'699',
                 },
-            ]
+            ],
+            profile:{
+                articlesNum:23,
+                tagsNum:4,
+            },
+            tags:[
+                {
+                    name:'css',
+                    value:10,
+                },
+                {
+                    name:'js',
+                    value:5,
+                },
+                {
+                    name:'react',
+                    value:'5',
+                },
+                {
+                    name:'浏览器',
+                    value:'3',
+                }
+            ],
         })
     }
 
@@ -69,7 +93,7 @@ export  default  class Home extends PureComponent {
     }
 
     render(){
-        const { homeSearch, articles, isAllContentShow} = this.state;
+        const { homeSearch, articles, isAllContentShow, profile, tags} = this.state;
 
         return(
             <div className='home'>
@@ -99,8 +123,41 @@ export  default  class Home extends PureComponent {
                     </div>
                 </div>
                 <div className='home-right-part'>
-                    <img src={imgURL}/>
-                    <h2>cookie</h2>
+                    <div className='profile-image'>
+                        <img src={imgURL}/>
+                    </div>
+                    <h2 className='profile-name'>cookie</h2>
+                    <ul className="profile-sum">
+                        <li>
+                            <span className='profile-sum-name'>文章</span>
+                            <span className='profile-sum-value'>{profile.articlesNum}</span>
+                        </li>
+                        <li>
+                            <span className='profile-sum-name'>分类</span>
+                            <span className='profile-sum-value'>{profile.tagsNum}</span>
+                        </li>
+                    </ul>
+                    <a className='contactMe-link' href="mailto:1394956763@qq.com">联系我</a>
+                    <div className='profile-link'>
+                        <a href='https://github.com/cookie-brown'><i className="iconfont icon-github"></i></a>
+                        <a href='https://juejin.im/user/5cc55fbc6fb9a031ec6d2fc8'><i className="iconfont icon-cezitubiao"></i></a>
+                    </div>
+                    <div className='cutoff-rule'/>
+                    <div className='profile-tags-content'>
+                        <span className='profile-sum-name'>分类</span>
+                        <ul>
+                            {tags.map(item=>
+                                <li >
+                                    <Link className='link-style' to = "/articles">
+                                        <span className='profile-tags-name'>{item.name}</span>
+                                        <span className='profile-tags-value'>
+                                             <span>{item.value}</span>
+                                        </span>
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )
