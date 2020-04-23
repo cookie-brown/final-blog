@@ -1,29 +1,3 @@
-.home{
-	width: calc(100% - 120px); /* 80%宽度 */
-	height: 100%;
-	display: inline-flex;  /* inline-flex表示 inline + block + flex 布局 */
-	margin-left:-60px;
-	border-radius: 40px;
-	background-color: white;
-	vertical-align: middle;
-}
-
-.home-main{
-	width:70%;
-	padding:40px;
-	background-color: rgb(238,239,244);
-	border-radius: 40px;
-}
-
-header{
-	height:40px;
-	margin-bottom:30px;
-}
-
-header span{
-	font-size:24px;
-}
-
 .home-search{
 	float:right;
 	margin-top: -6px;
@@ -80,7 +54,6 @@ header span{
 }
 
 .link-style{
-	text-decoration: none;
 	color:rgb(115,161,196);
 }
 
@@ -96,11 +69,6 @@ header span{
 
 .card-footer span{
 	margin-right: 10px;
-}
-
-.home-right-part{
-	padding:40px;
-	width:calc(30% - 160px); /* 这是w3c盒子，width不包括padding，所以还要减去两个div的padding */
 }
 
 .profile-image{
@@ -124,7 +92,6 @@ header span{
 
 .profile-sum li{
 	display: inline-block;
-	list-style: none;
 }
 
 .profile-sum >:first-child{
@@ -150,7 +117,6 @@ header span{
 	width:100%;
 	height:30px;
 	margin:20px auto;
-	text-decoration: none;
 	text-align: center;  /* 里面的内容居中 */
 	line-height: 30px;
 	border-radius: 10px;
@@ -167,10 +133,6 @@ header span{
 	text-align: center;
 }
 
-.profile-link a{
-	text-decoration: none;
-}
-
 .profile-link i{
 	color:black;
 }
@@ -179,7 +141,7 @@ header span{
 	margin-right: 40px;
 }
 
-.cutoff-rule{
+.horizontal-split-line{
 	width:100%;
 	margin:30px 0 20px 0;
 	border:0.5px solid rgb(163,162,166);
@@ -193,7 +155,6 @@ header span{
 .profile-tags-content li{
 	width:80%;
 	margin:20px auto 0 auto;
-	list-style: none;
 }
 
 .profile-tags-value{

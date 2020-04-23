@@ -1,0 +1,45 @@
+.article-card{
+	margin-bottom: 30px;
+	padding:20px 40px;
+	background-color: white;
+	border-radius: 20px;
+}
+
+.article-card h3{
+	margin-bottom: 10px;
+	color:rgb(46,45,53);
+}
+
+.article-card img{
+	width:26%;
+	height:60%;
+	vertical-align: top;
+}
+
+.article-card-content{
+	display: inline-block;
+	width:calc(74% - 20px);
+	/*height:160px;*/
+	margin-left:20px;
+	vertical-align: top;
+	font-size:16px;
+	line-height:25px;
+}
+
+.hide-show-link{
+	display: none;
+}
+
+.link-style{
+	color:rgb(115,161,196);
+}
+
+.article-card-footer{
+	margin-top: 15px;
+	font-size: 14px;
+	color: rgb(163,162,166);
+}
+
+.article-card-footer span{
+	margin-right:10px;
+}

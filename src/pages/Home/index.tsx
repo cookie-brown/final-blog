@@ -1,9 +1,10 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
+import articleCard from '../../components/ArticleCard';
 import './index.css';
+import '../style/pageCommon.css';
 // @ts-ignore
 import imgURL from '../../images/logo.jpg';
-
 export  default  class Home extends PureComponent {
     constructor(props) {
         super(props);
@@ -96,10 +97,10 @@ export  default  class Home extends PureComponent {
         const { homeSearch, articles, isAllContentShow, profile, tags} = this.state;
 
         return(
-            <div className='home'>
-                <div className='home-main'>
-                    <header>
-                        <span style={{'color':'rgb(46,45,53)',}}>Home </span><span style={{'color':'rgb(133,133,141)',}}>Page</span>
+            <div className='common-page'>
+                <div className='common-page-main'>
+                    <header className='common-page-main-header'>
+                        <span className='common-page-main-header-title1'>Home </span><span className='common-page-main-header-title2'>Page</span>
                         <div className='home-search'>
                             <input className='search' value={homeSearch} onClick={this.clearSearchContent} onChange={this.changeSearchContent}/>
                             <i className="iconfont icon-sousuo"></i>
@@ -108,21 +109,30 @@ export  default  class Home extends PureComponent {
                     <div className='home-content-list'>
                         {
                             articles.map(item =>
-                                <div className='home-content-card'>
-                                    <h3>{item.title}</h3>
-                                    <img src={imgURL}/>
-                                    <span className='article-content'>{this._formatContent(item.content)}<Link className={isAllContentShow? 'hide-element': 'link-style'} to = "/article/1">阅读更多</Link></span>
-                                    <div className='card-footer'>
-                                        <span>{item.date}</span>
-                                        <span>{item.tag}</span>
-                                        <span>共 {item.length} 字</span>
-                                    </div>
-                                </div>
+                                    <articleCard
+                                        title={item.title}
+                                        imgUrl={item.imgUrl}
+                                        content={item.content}
+                                        date={item.date}
+                                        tag={item.tag}
+                                        sumlength={item.length}
+                                        visibleLength='300'
+                                    />
+                                // <div className='home-content-card'>
+                                //     <h3>{item.title}</h3>
+                                //     <img src={imgURL}/>
+                                //     <span className='article-content'>{this._formatContent(item.content)}<Link className={isAllContentShow? 'hide-element': 'link-style'} to = "/article/1">阅读更多</Link></span>
+                                //     <div className='card-footer'>
+                                //         <span>{item.date}</span>
+                                //         <span>{item.tag}</span>
+                                //         <span>共 {item.length} 字</span>
+                                //     </div>
+                                // </div>
                             )
                         }
                     </div>
                 </div>
-                <div className='home-right-part'>
+                <div className='common-page-right-part'>
                     <div className='profile-image'>
                         <img src={imgURL}/>
                     </div>
@@ -142,7 +152,7 @@ export  default  class Home extends PureComponent {
                         <a href='https://github.com/cookie-brown'><i className="iconfont icon-github"></i></a>
                         <a href='https://juejin.im/user/5cc55fbc6fb9a031ec6d2fc8'><i className="iconfont icon-cezitubiao"></i></a>
                     </div>
-                    <div className='cutoff-rule'/>
+                    <div className='horizontal-split-line'/>
                     <div className='profile-tags-content'>
                         <span className='profile-sum-name'>分类</span>
                         <ul>
