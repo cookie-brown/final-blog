@@ -10,7 +10,7 @@
 	color:#4A4A4A;
 }
 
-body, ul ,li,h2, h3, h4, span{
+body, ul ,li,h2, h3, h4, span, tr, td, table{
 	padding:0;
 	margin:0;
 }
@@ -20,5 +20,9 @@ li{
 }
 
 a{
-	text-decoration: none;
+	text-decoration: none; /* 下划线和划掉线 */
+}
+
+table, tr, td{
+	border:1px solid rgb(163,162,166);
 }

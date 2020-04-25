@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
-import articleCard from '../../components/ArticleCard';
+import ArticleCard from '../../components/ArticleCard';
+import Pagination from "../../components/Pagination";
 import './index.css';
 import '../style/pageCommon.css'
 import imgURL from "@/images/logo.jpg";
@@ -11,13 +12,26 @@ export default class Articles extends PureComponent{
         this.state = {
             isShowByAbstract:false,
             isPositiveOrder:false,
-            articles:[],
+            articlesList:[],
+            articlesCard:[],
+            pageInfoList:{
+                pageSize:1,
+                pageIndex:0,
+            },
+            pageInfoCard:{
+                pageSize:1,
+                pageIndex:1,
+            },
+            tags:[],
+            selectedTag:'',
+            selectedYear:'2020',
+            selectedMonth:'',
         }
     }
 
     componentDidMount(): void {
         this.setState({
-            articles: [
+            articlesList: [
                 {
                     title:'这是一个很长的标题大概要排到两行我希望他能够自动换行展示，这是一个很长的标题大概要排到两行我希望他能够自动换行展示',
                     imgUrl:'../../images/logo.jpg',
@@ -43,6 +57,28 @@ export default class Articles extends PureComponent{
                     length:'699',
                 },
             ],
+            pageInfoList:{
+                pageSize:5,
+                pageIndex:0,
+            },
+            tags:[
+                {
+                    name:'css',
+                    value:10,
+                },
+                {
+                    name:'js',
+                    value:5,
+                },
+                {
+                    name:'react',
+                    value:'5',
+                },
+                {
+                    name:'浏览器',
+                    value:'3',
+                }
+            ],
         })
     }
 
@@ -53,23 +89,121 @@ export default class Articles extends PureComponent{
     }
 
     switchArticlesShowWay = () => {
+        let articlesShowWay = ! this.state.isShowByAbstract;  /* 去除setstate异步影响 */
+        /* 每次切换时都要向后台请求数据 */
         this.setState({
-            isShowByAbstract: !this.state.isShowByAbstract,
+            isShowByAbstract: articlesShowWay,
+            articlesCard: [
+                {
+                    title:'这是一个很长的标题大概要排到两行我希望他能够自动换行展示，这是一个很长的标题大概要排到两行我希望他能够自动换行展示',
+                    imgUrl:'../../images/logo.jpg',
+                    content:'孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员。孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生',
+                    date:'2020-04-20',
+                    tag:'娱乐',
+                    length:'699',
+                },
+                {
+                    title:'孟美岐',
+                    imgUrl:'../../images/logo.jpg',
+                    content:'孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员。孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生',
+                    date:'2020-04-20',
+                    tag:'娱乐',
+                    length:'699',
+                },
+                {
+                    title:'孟美岐',
+                    imgUrl:'../../images/logo.jpg',
+                    content:'孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员。孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生于河南省洛阳市，中国内地流行乐女歌手、演员，孟美岐，1998年10月15日出生',
+                    date:'2020-04-20',
+                    tag:'娱乐',
+                    length:'699',
+                },
+            ],
+            pageInfoCard:{
+                pageSize:8,
+                pageIndex:0,
+            },
         })
     }
 
-    _formatContent = (content) => {
-        if (content.length > 200){
-            content = `${content.substring(0,200)}...       `;
+    handleClickPageIndex = (currentId) => {
+
+        this.setState(prevState => {
+            const key = prevState.isShowByAbstract ? 'pageInfoCard' : 'pageInfoList';
+
+            return {
+                [key]: { ...prevState[key], pageIndex:currentId }
+            }
+        })
+
+        // if(this.state.isShowByAbstract){
+            // this.setState(prevState=> ({
+            //     pageInfoCard:{...prevState.pageInfoCard, pageIndex:currentId}
+            // })
+        // }
+    }
+
+    handleMovePage = (iconDirection) => {
+        this.setState( prevState => {
+            const key = prevState.isShowByAbstract ? 'pageInfoCard' : 'pageInfoList';
+            const currentPageIndex = prevState[key] ? prevState[key].pageIndex : 0;
+            const pageSize = prevState[key]? prevState[key].pageSize : 0;
+
+            // console.log({key, currentPageIndex, pageSize})
+
+            if (iconDirection=='forward'){
+                if (currentPageIndex < pageSize-1) {
+                    return {
+                        [key] : { ...prevState[key], pageIndex: currentPageIndex+1 }
+                    }
+                }
+            }
+
+            if (iconDirection=='backward'){
+                if (currentPageIndex > 0) {
+                    return {
+                        [key] : { ...prevState[key], pageIndex: currentPageIndex-1 }
+                    }
+                }
+            }
+        })
+    }
+
+    handleSelectedTags = (index) => {
+        this.setState({
+            selectedTag: index,
+        })
+    }
+
+    handleChangeSelectedYear = (e) => {
+        const currentYear = this.state.selectedYear;
+        if (e.target.id == 'backwardYear'){
             this.setState({
-                isAllContentShow:false,
+                selectedYear: currentYear-1
             })
         }
-        return content;
+        if (e.target.id == 'forwardYear'){
+            this.setState({
+                selectedYear: currentYear+1
+            })
+        }
+    }
+
+    handleChangeSelectedMonth = (itemMonth) => {
+        this.setState({
+            selectedMonth:itemMonth,
+        })
     }
 
     render(){
-        const { isShowByAbstract, isPositiveOrder, articles} = this.state;
+        const { isShowByAbstract, isPositiveOrder, articlesList, articlesCard, pageInfoList,
+            pageInfoCard, tags, selectedTag, selectedYear, selectedMonth} = this.state;
+
+        const articlesMonth = [
+            ['1月','2月','3月','4月'],
+            ['5月','6月','7月','8月'],
+            ['9月','10月','11月','12月']
+        ];
 
         return(
             <div className='common-page'>
@@ -82,17 +216,18 @@ export default class Articles extends PureComponent{
                     </header>
                     <ul className='articles-list'>
                         {isShowByAbstract?
-                            articles.map(item =>
-                                <articleCard
+                            articlesCard.map(item =>
+                                <ArticleCard
                                     title={item.title}
                                     imgUrl={item.imgUrl}
                                     content={item.content}
                                     date={item.date}
                                     tag={item.tag}
-                                    sumlength={item.length}
-                                    visibleLength='300'
-                                />)
-                            :articles.map((item,index) =>
+                                    sumLength={item.length}
+                                    visibleLength='100'
+                                />
+                               )
+                            :articlesList.map((item,index) =>
                             <li className={(index%2==0)?'articles-list-bg':''}>
                                 <Link to = "/article/1">
                                     <span className='articles-list-title'>{item.title}</span>
@@ -102,9 +237,58 @@ export default class Articles extends PureComponent{
                             </li>
                         )}
                     </ul>
-
+                    <Pagination
+                        pageSize={isShowByAbstract?pageInfoCard.pageSize:pageInfoList.pageSize}
+                        pageIndex={isShowByAbstract?pageInfoCard.pageIndex:pageInfoList.pageIndex}
+                        onClickPageIndex={this.handleClickPageIndex}
+                        onMovePage = {this.handleMovePage}
+                    />
                 </div>
-                <div className='common-page-right-part'></div>
+                <div className='common-page-right-part'>
+                    <div className='articles-tags-selector'>
+                        <span className='articles-selector-title'>分类</span>
+                        {tags.map((item,index) =>
+                            <div
+                                className={ index==selectedTag ? 'articles-tags-selector-item selected-tag' : 'articles-tags-selector-item' }
+                                onClick={this.handleSelectedTags.bind(this, index)}
+                            >
+                                <Link className='link-style' to = "/articles">
+                                    <span className='articles-tags-selector-name'>{item.name}</span>
+                                    <span className='articles-tags-selector-value'>{item.value}</span>
+                                </Link>
+                            </div>
+                        )}
+                    </div>
+                    <div className='articles-timeline-selector'>
+                        <span className='articles-selector-title'>归档</span>
+                        <div className='articles-timeline-selector-year'>
+                            <i
+                                id='backwardYear'
+                                className="iconfont icon-triangle-left"
+                                onClick={this.handleChangeSelectedYear}
+                            />
+                             {selectedYear}年
+                            <i
+                                id='forwardYear'
+                                className="iconfont icon-triangle-right"
+                                onClick={this.handleChangeSelectedYear}
+                            />
+                        </div>
+                        <table className='articles-timeline-selector-month'>
+                            {articlesMonth.map(item =>
+                                <tr>
+                                    {item.map(item =>
+                                        <td
+                                            id={item}
+                                            className={item==selectedMonth ? 'selected-month':''}
+                                            onClick={this.handleChangeSelectedMonth.bind(this,item)}
+                                        >{item}</td>
+                                    )}
+                                </tr>
+                            )}
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -5,21 +5,30 @@
 	border-radius: 20px;
 }
 
+.article-card:last-child{
+	margin-bottom: 0;
+}
+
 .article-card h3{
 	margin-bottom: 10px;
 	color:rgb(46,45,53);
 }
 
-.article-card img{
-	width:26%;
-	height:60%;
+.article-card-img-home{
+	width:200px;
+	height:160px;
+	vertical-align: top;
+}
+
+.article-card-img-articles{
+	width:200px;
+	height:70px;
 	vertical-align: top;
 }
 
 .article-card-content{
 	display: inline-block;
-	width:calc(74% - 20px);
-	/*height:160px;*/
+	width:calc(100% - 220px);
 	margin-left:20px;
 	vertical-align: top;
 	font-size:16px;

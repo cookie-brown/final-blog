@@ -1,0 +1,30 @@
+.pagination{
+	margin-top:30px;
+	text-align: center;
+}
+
+.pagination li{
+	display: inline-block;
+	width:25px;
+	height:25px;
+	margin-right:5px;
+	border:1px solid rgb(115,161,196);
+	background-color:white;
+	border-radius:50%;
+	line-height: 25px;
+	text-align: center;
+}
+
+.pagination li:hover{
+	background-color: rgb(115,161,196);
+	cursor: pointer;
+}
+
+/* 去除选择器权重的影响，否则bgcolor不生效，权重没有之前声明的高 */
+.pagination .currentPage{
+	background-color: rgb(115,161,196);
+}
+
+
+
+

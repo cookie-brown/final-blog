@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
-import articleCard from '../../components/ArticleCard';
+import ArticleCard from '../../components/ArticleCard';
 import './index.css';
 import '../style/pageCommon.css';
 // @ts-ignore
@@ -109,25 +109,16 @@ export  default  class Home extends PureComponent {
                     <div className='home-content-list'>
                         {
                             articles.map(item =>
-                                    <articleCard
+                                    <ArticleCard
                                         title={item.title}
                                         imgUrl={item.imgUrl}
+                                        showInHome='1'
                                         content={item.content}
                                         date={item.date}
                                         tag={item.tag}
-                                        sumlength={item.length}
-                                        visibleLength='300'
+                                        sumLength={item.length}
+                                        visibleLength='200'
                                     />
-                                // <div className='home-content-card'>
-                                //     <h3>{item.title}</h3>
-                                //     <img src={imgURL}/>
-                                //     <span className='article-content'>{this._formatContent(item.content)}<Link className={isAllContentShow? 'hide-element': 'link-style'} to = "/article/1">阅读更多</Link></span>
-                                //     <div className='card-footer'>
-                                //         <span>{item.date}</span>
-                                //         <span>{item.tag}</span>
-                                //         <span>共 {item.length} 字</span>
-                                //     </div>
-                                // </div>
                             )
                         }
                     </div>

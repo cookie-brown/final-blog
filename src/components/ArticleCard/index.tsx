@@ -1,10 +1,10 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import './index.css';
-import '../style/pageCommon.css'
+import '../../pages/style/pageCommon.css'
 import imgURL from "@/images/logo.jpg";
 
-export default class articleCard extends PureComponent {
+export default class ArticleCard extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class articleCard extends PureComponent {
         }
     }
 
-    _formatContent({content, visibleLength}: { content: any, visibleLength: any }) {
+    _formatContent(content:any, visibleLength:any){
         if (content.length > visibleLength) {
             content = `${content.substring(0, visibleLength)}...  `;
             this.setState({
@@ -23,13 +23,13 @@ export default class articleCard extends PureComponent {
     }
 
     render() {
-        const { title, imgUrl, content, date, tag, sumLength, visibleLength} = this.props;
+        const { title, imgUrl, showInHome, content, date, tag, sumLength, visibleLength} = this.props;
         const { isAllContentShow } = this.state;
 
         return (
             <div className='article-card'>
                 <h3>{title}</h3>
-                <img src={imgURL}/>
+                <img className={showInHome?'article-card-img-home':'article-card-img-articles'} src={imgURL}/>
                 <span className='article-card-content'>
                     {this._formatContent(content,visibleLength)}
                     <Link className={isAllContentShow ? 'hide-show-link':'link-style'} to = '/article/1'>阅读更多</Link>
