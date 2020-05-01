@@ -1,4 +1,5 @@
 .App{
+	display: flex;
 	height:100vh;
 	padding:20px 70px;
 	/* 让子元素可以撑满空间，同时也保证两边有间隙 */

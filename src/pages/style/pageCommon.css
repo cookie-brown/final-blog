@@ -9,7 +9,8 @@
 }
 
 .common-page-main{
-	width:70%;
+	flex:1 1 auto;
+	/*width:70%;*/
 	padding:40px;
 	background-color: rgb(238,239,244);
 	border-radius: 40px;
@@ -33,7 +34,8 @@
 
 .common-page-right-part{
 	padding:40px;
-	width:calc(30% - 160px); /* 这是w3c盒子，width不包括padding，所以还要减去两个div的padding */
+	flex:0 0 calc(30% - 160px);
+/* 这是w3c盒子，width不包括padding，所以还要减去两个div的padding */
 }
 
 
