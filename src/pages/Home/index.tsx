@@ -1,8 +1,8 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import ArticleCard from '../../components/ArticleCard';
-import './index.css';
-import '../style/pageCommon.css';
+import './index.styl';
+import '../style/pageCommon.styl';
 // @ts-ignore
 import imgURL from '../../images/logo.jpg';
 export  default  class Home extends PureComponent {
@@ -10,7 +10,7 @@ export  default  class Home extends PureComponent {
         super(props);
         // @ts-ignore
         this.state={
-            homeSearch:'Search',
+            homeSearch: '',
             articles: [],
             isAllContentShow:true,
             profile:{},
@@ -98,12 +98,29 @@ export  default  class Home extends PureComponent {
 
         return(
             <div className='common-page'>
-                <div className='common-page-main'>
-                    <header className='common-page-main-header'>
-                        <span className='common-page-main-header-title1'>Home </span><span className='common-page-main-header-title2'>Page</span>
-                        <div className='home-search'>
-                            <input className='search' value={homeSearch} onClick={this.clearSearchContent} onChange={this.changeSearchContent}/>
-                            <i className="iconfont icon-sousuo"></i>
+                <div className='common-page__main'>
+                    <header className='common-page__main__header'>
+                        <div className='header-title'>
+                            <span className='header-title__content'>Home</span>
+                            <span className='header-title__content'>Page</span>
+                        </div>
+                        <div className='header-search'>
+                            <input
+                                className='header-search__input'
+                                type='text'
+                                value={homeSearch}
+                                placeholder='请输入文章标题、内容搜索'
+                                onChange={this.changeSearchContent}
+                            />
+                            <i
+                                className="iconfont icon-qingchushuru"
+                                style={{
+                                    visibility: homeSearch ? 'visible' : 'hidden',
+                                    opacity: homeSearch ? 1 : 0,
+                                }}
+                                onClick={this.clearSearchContent}
+                            />
+                            <i className="iconfont icon-sousuo" />
                         </div>
                     </header>
                     <div className='home-content-list'>
@@ -123,7 +140,7 @@ export  default  class Home extends PureComponent {
                         }
                     </div>
                 </div>
-                <div className='common-page-right-part'>
+                <div className='common-page__side'>
                     <div className='profile-image'>
                         <img src={imgURL}/>
                     </div>

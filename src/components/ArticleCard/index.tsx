@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import './index.css';
-import '../../pages/style/pageCommon.css'
+import '../../pages/style/pageCommon.styl'
 import imgURL from "@/images/logo.jpg";
 
 export default class ArticleCard extends PureComponent {

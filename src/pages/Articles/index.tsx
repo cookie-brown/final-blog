@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ArticleCard from '../../components/ArticleCard';
 import Pagination from "../../components/Pagination";
 import './index.css';
-import '../style/pageCommon.css'
+import '../style/pageCommon.styl'
 import imgURL from "@/images/logo.jpg";
 
 export default class Articles extends PureComponent{
@@ -207,9 +207,9 @@ export default class Articles extends PureComponent{
 
         return(
             <div className='common-page'>
-                <div className='common-page-main'>
-                    <header className='common-page-main-header'>
-                        <span className='common-page-main-header-title1'>All </span><span className='common-page-main-header-title2'>Articles</span>
+                <div className='common-page__main'>
+                    <header className='common-page__main-header'>
+                        <span className='common-page__main-header-title1'>All </span><span className='common-page__main-header-title2'>Articles</span>
                         <div onClick={this.switchArticlesOrder} className='articles-header-switch-button'>按时间{isPositiveOrder?'倒序':'正序'}</div>
                         <div className='vertical-split-line'></div>
                         <div onClick={this.switchArticlesShowWay} className='articles-header-switch-button'>切换到{isShowByAbstract?'列表':'摘要'}</div>
@@ -244,7 +244,7 @@ export default class Articles extends PureComponent{
                         onMovePage = {this.handleMovePage}
                     />
                 </div>
-                <div className='common-page-right-part'>
+                <div className='common-page__side'>
                     <div className='articles-tags-selector'>
                         <span className='articles-selector-title'>分类</span>
                         {tags.map((item,index) =>

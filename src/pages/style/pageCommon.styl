@@ -1,0 +1,83 @@
+.common-page
+	// 80%宽度
+	width calc(100% - 120px)
+	height 100%
+	// inline-flex表示 inline + block + flex 布局
+	display inline-flex
+	margin-left -60px
+	border-radius 40px
+	background-color white
+	vertical-align middle
+
+	&__main
+		flex 1 1 auto
+		padding 40px
+		background rgb(238, 239, 244)
+		border-radius 40px
+
+		&__header
+			display flex
+			height 40px
+			margin-bottom 30px
+			justify-content space-between
+
+			.header-title
+				line-height 40px
+				font-size 24px
+				color rgb(46, 45, 33)
+				margin-right 8px
+
+				&__content
+					padding-right 10px
+
+					&:nth-child(2n)
+						color rgb(133, 133, 141)
+
+			.header-search
+				position relative
+				color rgb(163, 162, 166)
+				font-size 16px
+
+				&::after
+					position absolute
+					content ' '
+					width 1px
+					background #eaeaea
+					right 35px
+					top 8px
+					bottom 8px
+
+				&__input
+					width 350px
+					height 40px
+					border-radius 3px
+					padding 10px 65px 10px 10px
+					transition all .3s
+
+					&:focus
+						border 1px solid rgb(115, 161, 196)
+
+				.iconfont
+					position absolute
+					line-height 40px
+					transition all .3s
+
+					&:hover
+						cursor pointer
+						color rgb(115, 161, 196)
+
+					&.icon-qingchushuru
+						right 44px
+
+					&.icon-sousuo
+						width 35px
+						right 0
+						text-align center
+
+	&__side
+		padding 40px
+		// 这是w3c盒子，width不包括padding，所以还要减去两个div的padding
+		flex 0 0 calc(30% - 160px)
+
+
+
