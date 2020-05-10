@@ -5,6 +5,7 @@ import './index.styl';
 import '../style/pageCommon.styl';
 // @ts-ignore
 import imgURL from '../../images/logo.jpg';
+import { queryArticleList } from 'services/homeService'
 export  default  class Home extends PureComponent {
     constructor(props) {
         super(props);
@@ -18,7 +19,10 @@ export  default  class Home extends PureComponent {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const res = await queryArticleList()
+        console.log(res)
+
         this.setState({
             articles: [
                 {

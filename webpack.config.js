@@ -60,7 +60,10 @@ module.exports = {
         // 配置别名，避免路径书写过长，例如'../src/components/Nav'可书写为'components/Nav'
         alias: {
             '@': path.resolve('src'),
-            'components': path.resolve('src/components')
+            'components': path.resolve('src/components'),
+            'services': path.resolve('src/services'),
+            'utils': path.resolve('src/utils'),
+            'constants': path.resolve('src/constants')
         }
     }
 }
