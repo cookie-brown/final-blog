@@ -95,6 +95,7 @@ export  default  class Home extends PureComponent {
 
     render(){
         const { homeSearch, articles, isAllContentShow, profile, tags} = this.state;
+        const portraitImg = '../../images/0.jpeg'
 
         return(
             <div className='common-page'>
@@ -142,7 +143,7 @@ export  default  class Home extends PureComponent {
                 </div>
                 <div className='common-page__side'>
                     <div className='profile-image'>
-                        <img src={imgURL}/>
+                        <img src={portraitImg} />
                     </div>
                     <h2 className='profile-name'>cookie</h2>
                     <ul className="profile-sum">

@@ -8,6 +8,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.tsx'), // 编译后自动打开的入口文件
     output: {
         path: path.resolve(__dirname, buildPath),
+        publicPath: "/",
         filename: '[name].[chunkhash].js'
     },
     module: {
@@ -34,9 +35,29 @@ module.exports = {
             },
             // 文件识别
             {
-                test: /\.(png|jpg|gif|woff|svg|ttf)$/,
+                test:/\.(png|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 204800,
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|svg|ttf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: './img',
+                            publicPath: '/img'
+                        }
+                    }
                 ]
             }
         ]

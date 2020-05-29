@@ -26,6 +26,8 @@ export default class ArticleCard extends PureComponent {
         const { title, imgUrl, showInHome, content, date, tag, sumLength, visibleLength} = this.props;
         const { isAllContentShow } = this.state;
 
+        console.log(imgUrl)
+
         return (
             <div className='article-card'>
                 <h3>{title}</h3>
