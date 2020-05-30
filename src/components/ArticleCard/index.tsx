@@ -2,7 +2,6 @@ import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import './index.css';
 import '../../pages/style/pageCommon.styl'
-import imgURL from "@/images/logo.jpg";
 
 export default class ArticleCard extends PureComponent {
     constructor(props) {
@@ -26,12 +25,10 @@ export default class ArticleCard extends PureComponent {
         const { title, imgUrl, showInHome, content, date, tag, sumLength, visibleLength} = this.props;
         const { isAllContentShow } = this.state;
 
-        console.log(imgUrl)
-
         return (
             <div className='article-card'>
                 <h3>{title}</h3>
-                <img className={showInHome?'article-card-img-home':'article-card-img-articles'} src={imgURL}/>
+                <img className={showInHome?'article-card-img-home':'article-card-img-articles'} src={imgUrl}/>
                 <span className='article-card-content'>
                     {this._formatContent(content,visibleLength)}
                     <Link className={isAllContentShow ? 'hide-show-link':'link-style'} to = '/article/1'>阅读更多</Link>

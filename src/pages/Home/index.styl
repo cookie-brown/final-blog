@@ -15,14 +15,12 @@
 
 .profile-sum{
 	text-align: center;
+	display: flex;
+	justify-content: space-between;
 }
 
 .profile-sum li{
 	display: inline-block;
-}
-
-.profile-sum >:first-child{
-	margin-right: 70px; /* 解决两个有间距的div在父元素中水平居中 */
 }
 
 .profile-sum li span{
@@ -94,4 +92,9 @@
 	text-align: center;
 	line-height: 20px;
 	font-size: 14px;
+}
+
+.home-content-list {
+	height: calc(100% - 40px);
+	overflow: auto;
 }
