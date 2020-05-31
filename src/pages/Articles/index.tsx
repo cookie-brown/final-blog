@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import ArticleCard from '../../components/ArticleCard';
 import Pagination from "../../components/Pagination";
 import './index.css';
-import '../style/pageCommon.styl'
-import imgURL from "@/images/logo.jpg";
+import '../../style/pageCommon.styl'
 
 export default class Articles extends PureComponent{
     constructor(props) {

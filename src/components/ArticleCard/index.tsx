@@ -1,7 +1,8 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import './index.css';
-import '../../pages/style/pageCommon.styl'
+import '../../style/pageCommon.styl'
+import '../../images/logo.jpg'
 
 export default class ArticleCard extends PureComponent {
     constructor(props) {

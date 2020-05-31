@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import './index.css'
-import '../../pages/style/iconfont.css'
+import '../../style/iconfont.css'
 
 export default function Nav() {
     return (
         <ul className='nav'>
-            {/*<img src={require('../../images/logo.jpeg')}/>*/}
             <li>
                 <NavLink
                     to={'/home'}

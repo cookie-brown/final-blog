@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import './index.css';
-import '../../pages/style/pageCommon.styl'
+import '../../style/pageCommon.styl';
 
 export default class Pagination extends PureComponent{
     constructor(props) {

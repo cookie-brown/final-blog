@@ -2,9 +2,8 @@ import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import ArticleCard from '../../components/ArticleCard';
 import './index.styl';
-import '../style/pageCommon.styl';
-// @ts-ignore
-import imgURL from '../../images/logo.jpg';
+import '../../style/pageCommon.styl'
+
 export  default  class Home extends PureComponent {
     constructor(props) {
         super(props);
@@ -79,7 +78,7 @@ export  default  class Home extends PureComponent {
 
     render(){
         const { homeSearch, articles, isAllContentShow, profile, tags} = this.state;
-        const portraitImg = '../../images/logo.jpg'
+        const portraitImg = 'images/logo.jpg'
 
         return(
             <div className='common-page'>
@@ -127,7 +126,7 @@ export  default  class Home extends PureComponent {
                 </div>
                 <div className='common-page__side'>
                     <div className='profile-image'>
-                        <img src={portraitImg} />
+                        {/*<img src={portraitImg} />*/}
                     </div>
                     <h2 className='profile-name'>cookie</h2>
                     <ul className="profile-sum">
