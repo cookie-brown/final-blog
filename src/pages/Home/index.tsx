@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import { Link } from "react-router-dom";
 import ArticleCard from '../../components/ArticleCard';
 import './index.styl';
+import { queryArticleList } from 'services/homeService'
 import '../../style/pageCommon.styl'
 
 export  default  class Home extends PureComponent {
@@ -15,9 +16,17 @@ export  default  class Home extends PureComponent {
             profile:{},
             tags:[],
         }
+
+        console.log(
+            '输入为123456789.1234',
+            this.thousandSplit(123456789.1234)
+            )
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const res = await queryArticleList()
+        console.log(res)
+
         this.setState({
             articles: [
                 {
@@ -78,7 +87,6 @@ export  default  class Home extends PureComponent {
 
     render(){
         const { homeSearch, articles, isAllContentShow, profile, tags} = this.state;
-        const portraitImg = 'images/logo.jpg'
 
         return(
             <div className='common-page'>
@@ -165,4 +173,32 @@ export  default  class Home extends PureComponent {
         )
     }
 
+    thousandSplit = (num) => {
+        const [intNum, floatNum] = String(num).split('.')
+        const intNumArr = intNum.split('').reverse()
+        const floatNumArr = !!floatNum
+            ? floatNum.split('')
+            : []
+
+        Array.prototype.thousandReduce = function(type) {
+            return this.reduce((result, iNum, idx) => {
+                let pos = Math.floor(idx / 3)
+                let calcNum = result[pos] || ''
+                calcNum = type === 'int'
+                    ? `${iNum}` + calcNum
+                    :  calcNum + `${iNum}`
+
+                result[pos] = calcNum
+                return result
+            }, [])
+        }
+
+
+        // 处理整数部分
+        let inrRes = intNumArr.thousandReduce('int')
+        // 处理小数部分
+        let floatRes = floatNumArr.thousandReduce('float')
+
+        return `${inrRes.reverse().join(',')}.${floatRes.join(',')}`
+    }
 }
