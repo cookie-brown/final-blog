@@ -4,6 +4,7 @@ import './index.css';
 import Nav from '../../components/Nav/index';
 import loadable from "@loadable/component";
 import Loading from 'components/Loading'
+import Footer from 'components/Footer'
 
 const LoadableComponentHome = loadable(
     () => import('../Home'),
@@ -38,6 +39,7 @@ function App() {
                     <Route path={'/home'} component={LoadableComponentHome} />
                 </Switch>
             </div>
+            <Footer />
         </BrowserRouter>
     )
 }

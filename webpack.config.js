@@ -93,7 +93,10 @@ module.exports = {
             '@': path.resolve('src'),
             'components': path.resolve('src/components'),
             'style': path.resolve('src/style'),
-            'images': path.resolve('src/images')
+            'images': path.resolve('src/images'),
+            'services': path.resolve('src/services'),
+            'constants': path.resolve('src/constants'),
+            'utils': path.resolve('src/utils'),
         }
     }
 }
